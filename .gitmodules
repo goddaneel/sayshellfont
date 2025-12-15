@@ -1,0 +1,3 @@
+[submodule "submodule/nerd-fonts"]
+	path = submodule/nerd-fonts
+	url = git@github.com:goddaneel/nerd-fonts.git
