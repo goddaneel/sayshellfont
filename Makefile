@@ -2,7 +2,7 @@
 ## pack
 _gs_control_version := $(shell '/usr/bin/grep' "Version:" "./dpkg/DEBIAN/control")
 _gs_build_version := $(subst Version: ,,$(_gs_control_version))
-_gs_build_package := bwrapsh_$(_gs_build_version)_all.deb
+_gs_build_package := sayshellfont_$(_gs_build_version)_all.deb
 
 
 
@@ -22,11 +22,11 @@ _ga_exec_mkdir += "./build/create/DEBIAN"
 _ga_exec_mkdir += "./build/create/info"
 _ga_exec_mkdir += "./build/dpkg/DEBIAN"
 _ga_exec_mkdir += "./build/dpkg/usr/bin"
-_ga_exec_mkdir += "./build/dpkg/usr/share/bwrapsh/main/base"
-_ga_exec_mkdir += "./build/dpkg/usr/share/bwrapsh/main/info"
-_ga_exec_mkdir += "./build/dpkg/usr/share/bwrapsh/main/patch/bash"
-_ga_exec_mkdir += "./build/dpkg/usr/share/bwrapsh/main/patch/icewm"
-_ga_exec_mkdir += "./build/dpkg/usr/share/bwrapsh/extra/profile"
+_ga_exec_mkdir += "./build/dpkg/usr/share/sayshellfont/main/base"
+_ga_exec_mkdir += "./build/dpkg/usr/share/sayshellfont/main/info"
+_ga_exec_mkdir += "./build/dpkg/usr/share/sayshellfont/main/patch/bash"
+_ga_exec_mkdir += "./build/dpkg/usr/share/sayshellfont/main/patch/icewm"
+_ga_exec_mkdir += "./build/dpkg/usr/share/sayshellfont/extra/profile"
 _ga_exec_mkdir += "./export"
 
 
@@ -54,7 +54,7 @@ _ga_exec_precopy += '/usr/bin/install'
 _ga_exec_precopy += -v
 _ga_exec_precopy += -p
 _ga_exec_precopy += -m 0755
-_ga_exec_precopy += "./dpkg/usr/bin/bwrapsh"
+_ga_exec_precopy += "./dpkg/usr/bin/sayshellfont"
 _ga_exec_precopy += -t
 _ga_exec_precopy += "./build/dpkg/usr/bin/"
 _ga_exec_precopy += &&
@@ -63,48 +63,48 @@ _ga_exec_precopy += '/usr/bin/install'
 _ga_exec_precopy += -v
 _ga_exec_precopy += -p
 _ga_exec_precopy += -m 0644
-_ga_exec_precopy += "./dpkg/usr/share/bwrapsh/main/base/bwrapsh_dbusproxy"
-_ga_exec_precopy += "./dpkg/usr/share/bwrapsh/main/base/bwrapsh_flatpakx11"
+_ga_exec_precopy += "./dpkg/usr/share/sayshellfont/main/base/sayshellfont_dbusproxy"
+_ga_exec_precopy += "./dpkg/usr/share/sayshellfont/main/base/sayshellfont_flatpakx11"
 _ga_exec_precopy += -t
-_ga_exec_precopy += "./build/dpkg/usr/share/bwrapsh/main/base/"
+_ga_exec_precopy += "./build/dpkg/usr/share/sayshellfont/main/base/"
 _ga_exec_precopy += &&
 
 _ga_exec_precopy += '/usr/bin/install'
 _ga_exec_precopy += -v
 _ga_exec_precopy += -p
 _ga_exec_precopy += -m 0644
-_ga_exec_precopy += "./dpkg/usr/share/bwrapsh/main/info/"*
+_ga_exec_precopy += "./dpkg/usr/share/sayshellfont/main/info/"*
 _ga_exec_precopy += "./LICENSE"
 _ga_exec_precopy += "./build/create/info/version"
 _ga_exec_precopy += -t
-_ga_exec_precopy += "./build/dpkg/usr/share/bwrapsh/main/info/"
+_ga_exec_precopy += "./build/dpkg/usr/share/sayshellfont/main/info/"
 _ga_exec_precopy += &&
 
 _ga_exec_precopy += '/usr/bin/install'
 _ga_exec_precopy += -v
 _ga_exec_precopy += -p
 _ga_exec_precopy += -m 0644
-_ga_exec_precopy += "./dpkg/usr/share/bwrapsh/main/patch/bash/.bashrc"
+_ga_exec_precopy += "./dpkg/usr/share/sayshellfont/main/patch/bash/.bashrc"
 _ga_exec_precopy += -t
-_ga_exec_precopy += "./build/dpkg/usr/share/bwrapsh/main/patch/bash/"
+_ga_exec_precopy += "./build/dpkg/usr/share/sayshellfont/main/patch/bash/"
 _ga_exec_precopy += &&
 
 _ga_exec_precopy += '/usr/bin/install'
 _ga_exec_precopy += -v
 _ga_exec_precopy += -p
 _ga_exec_precopy += -m 0644
-_ga_exec_precopy += "./dpkg/usr/share/bwrapsh/main/patch/icewm/"*
+_ga_exec_precopy += "./dpkg/usr/share/sayshellfont/main/patch/icewm/"*
 _ga_exec_precopy += -t
-_ga_exec_precopy += "./build/dpkg/usr/share/bwrapsh/main/patch/icewm/"
+_ga_exec_precopy += "./build/dpkg/usr/share/sayshellfont/main/patch/icewm/"
 _ga_exec_precopy += &&
 
 _ga_exec_precopy += '/usr/bin/install'
 _ga_exec_precopy += -v
 _ga_exec_precopy += -p
 _ga_exec_precopy += -m 0644
-_ga_exec_precopy += "./dpkg/usr/share/bwrapsh/extra/profile/"*
+_ga_exec_precopy += "./dpkg/usr/share/sayshellfont/extra/profile/"*
 _ga_exec_precopy += -t
-_ga_exec_precopy += "./build/dpkg/usr/share/bwrapsh/extra/profile/"
+_ga_exec_precopy += "./build/dpkg/usr/share/sayshellfont/extra/profile/"
 
 _ga_exec_postcopy += '/usr/bin/install'
 _ga_exec_postcopy += -v
@@ -142,7 +142,7 @@ _ga_exec_rsync += --safe-links
 _ga_exec_rsync += --max-size="100M"
 _ga_exec_rsync += --delete
 _ga_exec_rsync += $(_ga_arg1_rsync)
-_ga_exec_rsync += "/usr/local/share/bwrapsh"
+_ga_exec_rsync += "/usr/local/share/sayshellfont"
 _ga_exec_rsync += "./example/"
 
 
