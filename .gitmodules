@@ -1,3 +1,6 @@
 [submodule "submodule/nerd-fonts"]
 	path = submodule/nerd-fonts
 	url = git@github.com:goddaneel/nerd-fonts.git
+[submodule "submodule/LxgwWenKai"]
+	path = submodule/LxgwWenKai
+	url = git@github.com:goddaneel/LxgwWenKai.git
