@@ -21,12 +21,8 @@ _ga_exec_mkdir += -m 0755
 _ga_exec_mkdir += "./build/create/DEBIAN"
 _ga_exec_mkdir += "./build/create/info"
 _ga_exec_mkdir += "./build/dpkg/DEBIAN"
-_ga_exec_mkdir += "./build/dpkg/usr/bin"
-_ga_exec_mkdir += "./build/dpkg/usr/share/sayshellfont/main/base"
-_ga_exec_mkdir += "./build/dpkg/usr/share/sayshellfont/main/info"
-_ga_exec_mkdir += "./build/dpkg/usr/share/sayshellfont/main/patch/bash"
-_ga_exec_mkdir += "./build/dpkg/usr/share/sayshellfont/main/patch/icewm"
-_ga_exec_mkdir += "./build/dpkg/usr/share/sayshellfont/extra/profile"
+_ga_exec_mkdir += "./build/dpkg/usr/share/fonts/sayshellfont"
+_ga_exec_mkdir += "./build/dpkg/usr/share/fonts/sayshellfont/lxgw/LxgwWenKai/TTF"
 _ga_exec_mkdir += "./export"
 
 
@@ -53,58 +49,21 @@ _ga_exec_fdfind += "../build/create/DEBIAN/shasums"
 _ga_exec_precopy += '/usr/bin/install'
 _ga_exec_precopy += -v
 _ga_exec_precopy += -p
-_ga_exec_precopy += -m 0755
-_ga_exec_precopy += "./dpkg/usr/bin/sayshellfont"
-_ga_exec_precopy += -t
-_ga_exec_precopy += "./build/dpkg/usr/bin/"
-_ga_exec_precopy += &&
-
-_ga_exec_precopy += '/usr/bin/install'
-_ga_exec_precopy += -v
-_ga_exec_precopy += -p
 _ga_exec_precopy += -m 0644
-_ga_exec_precopy += "./dpkg/usr/share/sayshellfont/main/base/sayshellfont_dbusproxy"
-_ga_exec_precopy += "./dpkg/usr/share/sayshellfont/main/base/sayshellfont_flatpakx11"
-_ga_exec_precopy += -t
-_ga_exec_precopy += "./build/dpkg/usr/share/sayshellfont/main/base/"
-_ga_exec_precopy += &&
-
-_ga_exec_precopy += '/usr/bin/install'
-_ga_exec_precopy += -v
-_ga_exec_precopy += -p
-_ga_exec_precopy += -m 0644
-_ga_exec_precopy += "./dpkg/usr/share/sayshellfont/main/info/"*
 _ga_exec_precopy += "./LICENSE"
 _ga_exec_precopy += "./build/create/info/version"
 _ga_exec_precopy += -t
-_ga_exec_precopy += "./build/dpkg/usr/share/sayshellfont/main/info/"
+_ga_exec_precopy += "./build/dpkg/usr/share/fonts/sayshellfont/"
 _ga_exec_precopy += &&
 
 _ga_exec_precopy += '/usr/bin/install'
 _ga_exec_precopy += -v
 _ga_exec_precopy += -p
 _ga_exec_precopy += -m 0644
-_ga_exec_precopy += "./dpkg/usr/share/sayshellfont/main/patch/bash/.bashrc"
+_ga_exec_precopy += "./submodule/LxgwWenKai/fonts/TTF/"*
+_ga_exec_precopy += "./submodule/LxgwWenKai/OFL.txt"
 _ga_exec_precopy += -t
-_ga_exec_precopy += "./build/dpkg/usr/share/sayshellfont/main/patch/bash/"
-_ga_exec_precopy += &&
-
-_ga_exec_precopy += '/usr/bin/install'
-_ga_exec_precopy += -v
-_ga_exec_precopy += -p
-_ga_exec_precopy += -m 0644
-_ga_exec_precopy += "./dpkg/usr/share/sayshellfont/main/patch/icewm/"*
-_ga_exec_precopy += -t
-_ga_exec_precopy += "./build/dpkg/usr/share/sayshellfont/main/patch/icewm/"
-_ga_exec_precopy += &&
-
-_ga_exec_precopy += '/usr/bin/install'
-_ga_exec_precopy += -v
-_ga_exec_precopy += -p
-_ga_exec_precopy += -m 0644
-_ga_exec_precopy += "./dpkg/usr/share/sayshellfont/extra/profile/"*
-_ga_exec_precopy += -t
-_ga_exec_precopy += "./build/dpkg/usr/share/sayshellfont/extra/profile/"
+_ga_exec_precopy += "./build/dpkg/usr/share/fonts/sayshellfont/lxgw/LxgwWenKai/TTF/"
 
 _ga_exec_postcopy += '/usr/bin/install'
 _ga_exec_postcopy += -v
@@ -132,20 +91,6 @@ _ga_exec_shasum += >
 _ga_exec_shasum += "$(_gs_build_package).shasum"
 
 
-## sync
-_ga_exec_rsync += '/usr/bin/rsync'
-_ga_exec_rsync += --info=progress2
-_ga_exec_rsync += -R
-_ga_exec_rsync += -av
-_ga_exec_rsync += -m
-_ga_exec_rsync += --safe-links
-_ga_exec_rsync += --max-size="100M"
-_ga_exec_rsync += --delete
-_ga_exec_rsync += $(_ga_arg1_rsync)
-_ga_exec_rsync += "/usr/local/share/sayshellfont"
-_ga_exec_rsync += "./example/"
-
-
 
 ### target
 ## clean
@@ -166,9 +111,4 @@ build-deb:
 	$(_ga_exec_dpkg)
 	$(_ga_exec_shasum)
 
-
-## sync
-.PHONY: sync-local
-sync-local:
-	$(_ga_exec_rsync)
 

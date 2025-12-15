@@ -1,0 +1,7 @@
+Package: sayshellfont
+Version: 0.0.1
+Architecture: all
+Depends:
+Maintainer: goddaneel <goddaneel@gmail.com>
+Description: SayshellFont.
+
